@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>跳转登录页面</title>
+        <style>
+            body {
+                text-align: center;
+            }
+            div {
+                margin-bottom: 10px;
+            }
+            botton {
+                background: #eeeeee;
+                padding: 5px 20px;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+       <h3>页面登录</h3>
+       <div>
+           <span>用户名：</span>
+           <input type="text" id="username">
+       </div>
+       <div>
+           <span>密  &nbsp;码：</span>
+           <input type="password" id="password">
+       </div>
+       <botton onclick="login()">登录</botton>
+    </body>
+    <script type="text/javascript">
+       function login(){
+           var username = document.getElementById('username').value;
+           var password = document.getElementById('password').value;
+           // 用户名和密码都不为空
+           if(username&&password){
+               localStorage.username = username;
+               var url = location.search.split("=")[1];
+               location.href = url;
+           }
+
+       }
+    </script>
+</html>

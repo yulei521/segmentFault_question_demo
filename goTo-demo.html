@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>登录成功后自动跳转到起始页面</title>
+        <style>
+            body {
+                text-align: center;
+            }
+            botton {
+                padding: 5px 20px;
+                background: #dddddd;
+                cursor: pointer;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <p>登录返回后下面显示你的登录用户名</p>
+            <p><botton onclick="login()">点击跳转登录</botton></p>
+            <p>当前用户名是：<span id="username"></span></p>
+        </div>
+    </body>
+    <script type="text/javascript">
+        var username = document.getElementById("username");
+        window.onload = function(){
+            if(localStorage.username.length>1){
+                username.innerHTML = localStorage.username;
+            }
+        }
+        function login(){
+            // 构造返回链接
+            var returnUrl = "returnUrl=goTo-demo.html";
+            var Url = "goToLogin-demo.html" + "?" + returnUrl;
+            location.href = Url;
+        }
+    </script>
+</html>
