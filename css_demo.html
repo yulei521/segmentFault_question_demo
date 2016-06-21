@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>css特殊样式小结</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css.css" >
+        <style type="text/css">
+            body {
+                min-width: 1000px;
+                margin: 20px 15%;
+                background-color: rgb(235,235,235);
+                font-family: Helvetica;
+            }
+            .demo {
+                background: #ffffff;
+                padding: 10px;
+                margin-bottom: 20px;
+            }
+            li {
+                list-style: none;
+            }
+            .ellipse {
+                display: inline-block;
+                overflow: hidden;
+                width: 100px;
+                text-overflow: ellipsis;
+                -webkit-text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+            .drg {
+                width: 200px;
+                height: 200px;
+                background: rgb(123,23,123);
+                position: relative;
+            }
+            .drg:after {
+                position: absolute;
+                left: 100%;
+                border: 20px solid transparent;
+                border-left: 20px solid rgb(23,123,123);
+                content: '';
+            }
+            img {
+                width: 50px;
+                height: 50px;
+                border-radius: 5px;
+                vertical-align: middle;
+            }
+            .middle {
+                display: inline-block;
+                vertical-align: middle;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="demo">
+            <h3>1.单行省略号</h3>
+            <li>这里的宽度是100px，超过的宽度会不用...显示</li>
+            <li class="ellipse">这里的宽度是100px，超过的宽度会用...显示</li>
+        </div>
+        <div class="demo">
+            <h3>2.小三角</h3>
+            <div class="drg"></div>
+        </div>
+        <div class="demo">
+            <h3>3.图片后边文字垂直对齐</h3>
+            <img src="images/banshu.jpg">
+            <span class="middle">这里文字垂直对齐<br/>这里文字垂直对齐
+            </span>
+        </div>
+    </body>
+</html>
